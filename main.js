@@ -1,16 +1,8 @@
 const links = [
     {
-      label: "Week1 notes",
+      label: "Week1",
       url: "week1/index.html"
-    },
-    {
-        label: "Week2 notes",
-        url: "week2/index.html"
-    },
-      {
-        label: "Week3 notes",
-        url: "week3/index.html"
-      }
+    }
   ];
   let text;
   links.forEach(myFunction);
