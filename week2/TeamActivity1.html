@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Activity | Week 2</title>
+</head>
+<body>
+    <input type="text" id="input_text">
+    <input type="text" id="input_text_2">
+    <div id="demo"></div>
+    <script>
+        // Function Declaration
+        function read_contents() {
+            let num = parseInt(document.getElementById("input_text").value);
+            let num2 = parseInt(document.getElementById("input_text_2").value);
+            document.getElementById("demo").innerHTML = num + num2;
+        }
+        // Function Expression
+        let x = function() {
+            let num = parseInt(document.getElementById("input_text").value);
+            let num2 = parseInt(document.getElementById("input_text_2").value);
+            document.getElementById("demo").innerHTML = num - num2;
+        }
+        // Arrow Function
+        const y = () => {
+            let num = parseInt(document.getElementById("input_text").value);
+            let num2 = parseInt(document.getElementById("input_text_2").value);
+            document.getElementById("demo").innerHTML = num * num2;
+        }
+        
+        // function check_number(number) {
+        //     let total = 0;
+        //     if (typeof(number) == "number" && number > 0) {
+        //         for (let i = 0; i <= number; i++) {
+        //             total += i;
+        //         }
+        //     } else {
+        //         alert("Invalid number. Please enter a number greater than 0.")
+        //     }
+        //     return total;
+        // }
+        </script>
+    <button type="button" id="button" onclick="read_contents()">+</button>
+    <button type="button" id="button" onclick="x()">-</button>
+    <button type="button" id="button" onclick="y()">*</button>
+</body>
+</html>

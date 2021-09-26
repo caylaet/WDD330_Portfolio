@@ -5,15 +5,20 @@ body {
 ol{
     list-style-type: none;
 }
-.notes_link{
+.notes_link, .ninja_link {
     color:white;
     background-color: green;
     text-decoration: none;
     border: 2px solid white;
     border-radius: 25px;
     padding: 5px;
+} 
+.link {
+    margin-top: 20px;
+    
 }
-.notes_link:hover{
+
+.notes_link:hover, .ninja_link:hover{
     color: black;
 }
 .table_of_contents{
