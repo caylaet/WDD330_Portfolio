@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WDD 330 portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Week 2 Notes</h1>
+    <h2>Comments</h2>
+    <ul>
+        <li>// used for inline Comments</li>
+        <li>/* */ used for mulitiple line comments</li>
+    </ul>
+    <h2>Data Types</h2>
+    <ul>
+        <li>String</li>
+        <li>Symbol</li>
+        <li>Sumber</li>
+        <li>Boolean</li>
+        <li>Undefined</li>
+        <li>Null</li>
+        <li>For finding the type use <u>typeof</u></li>
+    </ul>
+    <h2>Variables</h2>
+    <ul>
+        <li><u>const</u> & <u>let</u> are used to assign variables</li>
+        <li>ex: const animal = mouse;</li>
+        <li><u>const</u> variables can not be reassigned later</li>
+        <li><u>let</u> variables can be reassigned later</li>
+        <li><u>var</u> is not used but kept for backwards compatability</li>
+        <li>Constant and variable names can start with any upper or lower-case letter, an underscore, _ , or dollar character, $ . They can also contain numbers, but cannot start with them.</li>
+        <li>Names are case sensitive</li>
+        <li>Camel case is most used but underscore also works, just be consistant</li>
+    </ul>
+    <h2>Scope</h2>
+    <ul>
+        <li>Global scope is a variable that can be axcessed anywhere in the program</li>
+        <li>Local scope is a variable only axcessed in a block</li>
+        <li>To define gobal scope inside a block assign a value without using <u>let</u> or <u>const</u></li>
+    </ul>
+    <h2>String Data Type</h2>
+    <ul>
+        <li>Use " or ' to surround, or alternate when wanting to display " or '</li>
+        <li>Has a wrapper class some of those methods are: indexOf(), charAt(), toLowerCase(), toUpperCase(), length, trim(), repeat(), includes().</li>
+        <li>A shortcut for string concatenation is to use the + operator to add the two strings together</li>
+        <li>Template Literals use ` for a string and can be used to put javacode right in the middle surround by ${}</li>
+        <li>The backslash is used to escape special characters in strings such as:<br>
+            Single quote marks \'<br>
+            Double quote marks \"<br>
+            End of line \n<br>
+            Carriage return \r<br>
+            Tab \t</li>
+        <li>To convert number to string use toString()</li>
+    </ul>
+    <h2>Symbols</h2>
+    <ul>
+        <li>Used for things like ids</li>
+        <li>Do not have a literal form</li>
+    </ul>
+    <h2>Numbers</h2>
+    <ul>
+        <li>If a number starts with a 0x , it is considered to be in hexadecimal (base 16) notation.
+          Hexadecimal or "hex" numbers are often used for color codes on the Web</li>
+        <li>Number have methods as well</li>
+        <li>You can perform all sorts of <a herf="https://www.w3schools.com/js/js_arithmetic.asp">arithmic</a> with numbers</li>
+        <li>Heighest number:1.7976931348623157e+308 lowest is negative of that and will be refered to as infinity</li>
+        <li>NaN - not a number</li>
+        <li>You can use opperands on strings with numbers but is not recomened and as the out come isn't always expected</li>
+        <li> Use Number() to convert</li>
+        <li>parseInt() can also be used to retrive numbers from a string if you need an integer use parseFloat()</li>
+      </ul>
+      <h2>Booleans</h2>
+      <ul>
+        <li><a href="https://www.w3schools.com/js/js_booleans.asp">Summary</a></li>
+        <li>== is used to compare values not based on data type</li>
+        <li>=== is used to compare values on data type</li>
+      </ul>
+      <h2>Array</h2>
+      <ul>
+        <li><a href="https://www.w3schools.com/js/js_arrays.asp">Summary</a></li>
+        <li>Destructuringan array is the concept of taking values out of an array and presenting them as individual values. Ex: const [x,y] = [1,2];</li>
+        <li>Spread operator </li>
+      </ul>
+      <h2>Sets</h2>
+      <ul>
+        <li><a href="https://www.w3schools.com/js/js_object_sets.asp">Summary</a></li>
+        <li>Set is like an array but ignores multiples of the same value. After it is created it can be converted into an arry.</li>
+        <li>Weak sets - a way of storing data until the referance object is deleted </li>
+      </ul>
+      <h2>Maps</h2>
+      <ul>
+        <li><a href="https://www.w3schools.com/js/js_object_maps.asp">Summary</a></li>
+        <li>Maps are a collection of key value pairs and can be converted into an arry.</li>
+        <li>Weak maps - same concept as weak sets only for maps and limited on the methods </li>
+      </ul>
+      <h2>Logic</h2>
+      <ul>
+        <li><a href="https://www.w3schools.com/js/js_if_else.asp">Conditional Statements</a></li>
+        <li><a href="https://www.w3schools.com/js/js_switch.asp">Switch statment</a></li>
+        <li><a href="https://www.w3schools.com/js/js_loop_for.asp">Loops</a> </li>
+      </ul>
+      <h2>Functions</h2>
+      <ul>
+        <li>Function Declaration: function read_contents()</li>
+        <li>Function Expression: let x = function()</li>
+        <li>Arrow Function: const y = () =></li>
+        <li>Parameter - a variable used in the function</li>
+        <li>Argument - what value is passed to the function</li>
+        <li>Function can be called before declared</li>
+        <li>Callback - when you use a function as a perameter to call it within the funciton</li>
+        <li>Callback can be used to sort and array numerically ex: .sort(numberically). There are also several other methods that have callbacks as well.</li>
+        
+    </ul>
+  </body>
+</html>
