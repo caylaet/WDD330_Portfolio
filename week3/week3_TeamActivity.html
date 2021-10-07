@@ -147,8 +147,26 @@
         'car',
         'truck'
       ];
-
-      const sums = {car:0, truck:0, bike:0, walk:0, van:0};
+      const sums = data.reduce(instanceSums,{car:0, truck:0, bike:0, walk:0, van:0});
+      function instanceSums(acc,type){
+        switch(type) {
+          case "car":
+            acc.car += 1;
+            break;
+          case "truck":
+            acc.truck += 1;
+            break;
+          case "bike":
+            acc.car += 1;
+            break;
+          case "walk":
+            acc.truck += 1;
+            break;
+          case "van":
+            acc.truck += 1;
+            break;
+          }
+      }
 
     </script>
     <div id="demo"></div>
