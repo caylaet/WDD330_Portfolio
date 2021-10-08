@@ -18,6 +18,15 @@ let counter = 1;
 // console.log(document.getElementById("box_1"));
 // console.log(box2);
 
+box1.addEventListener("click", displayShape);
+box2.addEventListener("click", displayShape);
+box3.addEventListener("click", displayShape);
+box4.addEventListener("click", displayShape);
+box5.addEventListener("click", displayShape);
+box6.addEventListener("click", displayShape);
+box7.addEventListener("click", displayShape);
+box8.addEventListener("click", displayShape);
+box9.addEventListener("click", displayShape);
 
 // Function Definitions
 function displayShape(event) {
