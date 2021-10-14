@@ -15,6 +15,10 @@ const links = [
       label: "Week4",
       url: "week4/index.html"
     },
+    {
+      label: "Week5",
+      url: "week5/index.html"
+    },
   ];
   let text;
   links.forEach(myFunction);
