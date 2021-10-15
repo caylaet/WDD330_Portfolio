@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDos</title>
+</head>
+<body>
+    <h1>Todos</h1>
+    <div id="todos"></div>
+    <div id="tasks_left"></div>
+    <button type="button" onclick="view.display_list()">All</button>
+    <button type="button" onclick="view.display_active_list()">Active</button>
+    <button type="button" onclick="view.display_completed_list()">Completed</button><br>
+
+    <input type="text" id="new_todo">
+    <button type="button" id="add_todo" onclick="action.add_task()">+</button>
+    <script src="ToDos.js"></script>
+
+</body>
+</html>
