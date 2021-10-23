@@ -150,44 +150,7 @@ function create_task(todo){
     task_description.innerHTML = element;
     if(todo.completed){
         task_description.classList.add("strike");
-    }
-    
-    //The delete element
-    const remove = document.createElement("div");
-    const x = document.createTextNode("X")
-    remove.className = "remove";
-    remove.addEventListener('click',remove_task);
-    remove.addEventListener('click', display_number_tasks_left);
-    remove.appendChild(x);
-
-    //Append them all to the container
-    task.appendChild(checkbox);
-    task.appendChild(task_description);
-    task.appendChild(remove);
-
-    return task;
-
-};
-function create_task(todo){
-    
-    //Container for the task
-    const task = document.createElement("div");
-    task.id ="task";
-
-    //Checkbox
-    const checkbox = document.createElement("input");
-    checkbox.type= "checkbox";
-    checkbox.checked = todo.completed;
-    checkbox.addEventListener("click", action.complete_task);
-    checkbox.addEventListener('click', display_number_tasks_left);
-
-    //The task
-    const task_description = document.createElement("label");
-    const element = todo.content;
-    task_description.innerHTML = element;
-    if(todo.completed){
-        task_description.classList.add("strike");
-    }
+    };
     
     //The delete element
     const remove = document.createElement("div");
