@@ -2,7 +2,11 @@
 import {loadTodos,saveTodos} from './ls.js';
 import {count_unchecked_items} from './utilities.js';
 
-const tasks = loadTodos();
+const tasks = [];
+const saved = loadTodos();
+if(saved !== null){
+    tasks.push(...saved);
+}
 
 
 //So when the user is in the impput box just has to hit enter and can click the + if wanted to.
@@ -46,7 +50,7 @@ function display_active_list(todos){
 };
 //Displays a number for the tasks still left to be completed.
 function display_number_tasks_left(tasks_left){
-    total_checked = count_unchecked_items(tasks);
+    const total_checked = count_unchecked_items(tasks);
     tasks_left.innerHTML = total_checked + "tasks left";
     
 };
@@ -72,12 +76,16 @@ function create_todo(string){
 
 
 function remove_task(){
-    const content = this.previousElementSibling;
-    console.log(content);
-    const index = tasks.findIndex(todo => todo.content === content.innerHTML);
-    tasks.splice(index,1);
-    saveTodos(tasks);
-    display_list(todos);
+    if (tasks.length == 1){
+        localStorage.clear();
+    }else{
+        const content = this.previousElementSibling;
+        const index = tasks.findIndex(todo => todo.content === content.innerHTML);
+        tasks.splice(index,1);
+        saveTodos(tasks);
+        display_list(todos);
+    }
+    
     
     
     
