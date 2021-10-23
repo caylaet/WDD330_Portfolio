@@ -17,8 +17,8 @@
     
 }
 #todos{
-    grid-column: 1 / 5;
-    align-items: center;
+    display: grid;
+    grid-template-columns: auto auto auto;
 }
 #tasks_left{
     text-shadow: 5px 5px 8px rgba(0,0,0,0.24);
@@ -35,7 +35,7 @@ button{
 .input{
     text-align: center;
 }
-input{
+.text_input{
     border: none;
     height: 20px;
     width: 75%;

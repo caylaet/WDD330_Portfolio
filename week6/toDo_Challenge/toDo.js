@@ -7,6 +7,8 @@ const saved = loadTodos();
 if(saved !== null){
     tasks.push(...saved);
 }
+const todos = document.getElementById("todos");
+const tasks_left = document.getElementById("tasks_left");
 
 
 //So when the user is in the impput box just has to hit enter and can click the + if wanted to.
@@ -49,7 +51,7 @@ function display_active_list(todos){
     });
 };
 //Displays a number for the tasks still left to be completed.
-function display_number_tasks_left(tasks_left){
+function display_number_tasks_left(){
     const total_checked = count_unchecked_items(tasks);
     tasks_left.innerHTML = total_checked + " tasks left";
     
@@ -155,8 +157,6 @@ function create_task(todo){
     
 };
 
-const todos = document.getElementById("todos");
-const tasks_left = document.getElementById("tasks_left");
 const add = document.getElementById("add_todo").addEventListener('click', add_task);
 const display_completed = document.getElementById("display_completed").addEventListener('click',display_completed_list);
 const display_active = document.getElementById("display_active").addEventListener('click',display_active_list);
