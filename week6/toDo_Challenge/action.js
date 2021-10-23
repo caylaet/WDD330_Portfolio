@@ -1,6 +1,6 @@
 
 import {saveTodos} from './ls.js';
-import {tasks,todos} from './variables';
+import {tasks,todos} from './variables.js';
 import {display_list,display_number_tasks_left} from './view.js';
 
 function complete_task(){

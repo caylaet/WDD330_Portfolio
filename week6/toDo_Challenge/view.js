@@ -1,5 +1,5 @@
 import {count_unchecked_items, create_task} from './utilities.js';
-import {tasks,todos,tasks_left} from './variables';
+import {tasks,todos,tasks_left} from './variables.js';
 
 
 //Displays all tasks to the user.
