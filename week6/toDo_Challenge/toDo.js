@@ -6,7 +6,7 @@ const tasks = [];
 const saved = loadTodos();
 if(saved !== null){
     tasks.push(...saved);
-}
+};
 const todos = document.getElementById("todos");
 const tasks_left = document.getElementById("tasks_left");
 
@@ -17,14 +17,14 @@ input.addEventListener("keyup", function(event) {
     if (event.key === "Enter") {
         event.preventDefault();
         document.getElementById("add_todo").click();
-    }
+    };
 });
 
 //Displays all tasks to the user.
 function display_list(todos){
     todos.innerHTML="";
     tasks.forEach(element => {
-        const todo = create_task(element)
+        const todo = create_task(element);
         todos.appendChild(todo);
     });    
 };
@@ -34,9 +34,9 @@ function display_completed_list(todos){
     todos.innerHTML="";
     tasks.forEach(element => {
         if(element.completed){
-            const todo = create_task(element)
-            todos.appendChild(todo)
-        }
+            const todo = create_task(element);
+            todos.appendChild(todo);
+        };
     });
 };
 
@@ -45,9 +45,9 @@ function display_active_list(todos){
     todos.innerHTML="";
     tasks.forEach(element => {
         if(!element.completed){
-            const todo = create_task(element)
-            todos.appendChild(todo)
-        }
+            const todo = create_task(element);
+            todos.appendChild(todo);
+        };
     });
 };
 //Displays a number for the tasks still left to be completed.
@@ -70,12 +70,14 @@ function create_todo(string){
         content: string, 
         completed: false
     };
-    return todo
+    return todo;
 };
 
 function remove_task(){
     if (tasks.length == 1){
         localStorage.clear();
+        tasks =[];
+        display_list(todos);
     }else{
         const content = this.previousElementSibling;
         const index = tasks.findIndex(todo => todo.content === content.innerHTML);
@@ -131,19 +133,21 @@ function create_task(todo){
     checkbox.checked = todo.completed;
     checkbox.addEventListener("click", complete_task);
     checkbox.addEventListener('click', display_number_tasks_left);
+    checkbox.classList.add("checkbox");
     
     //The task
     const task_description = document.createElement("label");
     const element = todo.content;
     task_description.innerHTML = element;
+    task_description.classList.add("content");
     if(todo.completed){
         task_description.classList.add("strike");
     };
     
     //The delete element
     const remove = document.createElement("div");
-    const x = document.createTextNode("X")
-    remove.className = "remove";
+    const x = document.createTextNode("X");
+    remove.classList.add("remove");
     remove.addEventListener('click',remove_task);
     remove.addEventListener('click', display_number_tasks_left);
     remove.appendChild(x);

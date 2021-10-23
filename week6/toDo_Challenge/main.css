@@ -18,7 +18,17 @@
 }
 #todos{
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: max-content max-content auto;
+}
+.checkbox{
+    grid-column: 1 / 2;
+}
+.content{
+    grid-column: 2 / 3;
+
+}
+.remove{
+    grid-column: 3 / 4;
 }
 #tasks_left{
     text-shadow: 5px 5px 8px rgba(0,0,0,0.24);
