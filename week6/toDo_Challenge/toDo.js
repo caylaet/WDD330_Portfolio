@@ -51,13 +51,13 @@ function display_active_list(todos){
 //Displays a number for the tasks still left to be completed.
 function display_number_tasks_left(tasks_left){
     const total_checked = count_unchecked_items(tasks);
-    tasks_left.innerHTML = total_checked + "tasks left";
+    tasks_left.innerHTML = total_checked + " tasks left";
     
 };
 
 function add_todo(todo){
     tasks.push(todo);
-}
+};
 
 
 
@@ -69,11 +69,7 @@ function create_todo(string){
         completed: false
     };
     return todo
-}
-
-
-
-
+};
 
 function remove_task(){
     if (tasks.length == 1){
@@ -84,52 +80,43 @@ function remove_task(){
         tasks.splice(index,1);
         saveTodos(tasks);
         display_list(todos);
-    }
-    
-    
-    
+    }    
     
 };
 
+function clear_input(){
+    document.getElementById("new_todo").value="";
+}; 
 
-const action ={
-    add_task() {
-        const content = document.getElementById("new_todo").value;
-        // console.log(content);
-        const todo = new create_todo(content);
-        // const todo = create_todo(content);
-        add_todo(todo);
-        // console.log(tasks)
-        this.clear_input();
-        display_list(todos);
-        display_number_tasks_left();
+function add_task() {
+    const content = document.getElementById("new_todo").value;
+    const todo = new create_todo(content);
+    add_todo(todo);
+    clear_input();
+    display_list(todos);
+    display_number_tasks_left();
+    saveTodos(tasks);
+    
+};
+
+function complete_task(){
+    const content = this.nextElementSibling;
+    const index = tasks.findIndex(todo => todo.content === content.innerHTML);
+    if(!tasks[index].completed){
+        content.classList.add("strike");
+        tasks[index].completed = true;
         saveTodos(tasks);
-        // console.log(savedTasks);
+        display_number_tasks_left();
         
-    },
-    
-    clear_input(){
-        document.getElementById("new_todo").value="";
-    }, 
-    complete_task(){
-        const content = this.nextElementSibling;
-        const index = tasks.findIndex(todo => todo.content === content.innerHTML);
-        if(!tasks[index].completed){
-            content.classList.add("strike");
-            tasks[index].completed = true;
-            saveTodos(tasks);
-            display_number_tasks_left();
-            
-            
-        }else{
-            content.classList.remove("strike");
-            tasks[index].completed = false;
-            saveTodos(tasks);
-            display_number_tasks_left();
-        }
-    },
-    
+        
+    }else{
+        content.classList.remove("strike");
+        tasks[index].completed = false;
+        saveTodos(tasks);
+        display_number_tasks_left();
+    }
 };
+
 function create_task(todo){
     
     //Container for the task
@@ -140,7 +127,7 @@ function create_task(todo){
     const checkbox = document.createElement("input");
     checkbox.type= "checkbox";
     checkbox.checked = todo.completed;
-    checkbox.addEventListener("click", action.complete_task);
+    checkbox.addEventListener("click", complete_task);
     checkbox.addEventListener('click', display_number_tasks_left);
     
     //The task
@@ -170,7 +157,7 @@ function create_task(todo){
 
 const todos = document.getElementById("todos");
 const tasks_left = document.getElementById("tasks_left");
-const add = document.getElementById("add_todo").addEventListener('click',action.add_task);
+const add = document.getElementById("add_todo").addEventListener('click', add_task);
 const display_completed = document.getElementById("display_completed").addEventListener('click',display_completed_list);
 const display_active = document.getElementById("display_active").addEventListener('click',display_active_list);
 const display = document.getElementById("display").addEventListener('click',display_list);
