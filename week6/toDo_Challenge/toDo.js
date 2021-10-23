@@ -1,14 +1,16 @@
 
 import {loadTodos,saveTodos} from './ls.js';
-import {count_unchecked_items} from './utilities.js';
+import {display_list,display_completed_list, display_active_list,display_number_tasks_left} from './view.js';
+import {tasks,todos,tasks_left} from './variables';
+// import {remove_task, complete_task} from './action';
 
-let tasks = [];
+// let tasks = [];
 const saved = loadTodos();
 if(saved !== null){
     tasks.push(...saved);
 };
-const todos = document.getElementById("todos");
-const tasks_left = document.getElementById("tasks_left");
+// const todos = document.getElementById("todos");
+// const tasks_left = document.getElementById("tasks_left");
 
 
 //So when the user is in the impput box just has to hit enter and can click the + if wanted to.
@@ -20,42 +22,7 @@ input.addEventListener("keyup", function(event) {
     };
 });
 
-//Displays all tasks to the user.
-function display_list(){
-    todos.innerHTML="";
-    tasks.forEach(element => {
-        const todo = create_task(element);
-        todos.appendChild(todo);
-    });    
-};
 
-//Displays only completed tasks to the user.
-function display_completed_list(){
-    todos.innerHTML="";
-    tasks.forEach(element => {
-        if(element.completed){
-            const todo = create_task(element);
-            todos.appendChild(todo);
-        };
-    });
-};
-
-//Displays tasks still to be done to the user.
-function display_active_list(){
-    todos.innerHTML="";
-    tasks.forEach(element => {
-        if(!element.completed){
-            const todo = create_task(element);
-            todos.appendChild(todo);
-        };
-    });
-};
-//Displays a number for the tasks still left to be completed.
-function display_number_tasks_left(){
-    const total_checked = count_unchecked_items(tasks);
-    tasks_left.innerHTML = total_checked + " tasks left";
-    
-};
 
 function add_todo(todo){
     tasks.push(todo);
@@ -73,20 +40,7 @@ function create_todo(string){
     return todo;
 };
 
-function remove_task(){
-    if (tasks.length == 1){
-        localStorage.clear();
-        tasks =[];
-        display_list(todos);
-    }else{
-        const content = this.previousElementSibling;
-        const index = tasks.findIndex(todo => todo.content === content.innerHTML);
-        tasks.splice(index,1);
-        saveTodos(tasks);
-        display_list(todos);
-    }    
-    
-};
+
 
 function clear_input(){
     document.getElementById("new_todo").value="";
@@ -103,63 +57,9 @@ function add_task() {
     
 };
 
-function complete_task(){
-    const content = this.nextElementSibling;
-    const index = tasks.findIndex(todo => todo.content === content.innerHTML);
-    if(!tasks[index].completed){
-        content.classList.add("strike");
-        tasks[index].completed = true;
-        saveTodos(tasks);
-        display_number_tasks_left();
-        
-        
-    }else{
-        content.classList.remove("strike");
-        tasks[index].completed = false;
-        saveTodos(tasks);
-        display_number_tasks_left();
-    }
-};
 
-function create_task(todo){
-    
-    //Container for the task
-    const task = document.createElement("div");
-    task.id ="task";
-    
-    //Checkbox
-    const checkbox = document.createElement("input");
-    checkbox.type= "checkbox";
-    checkbox.checked = todo.completed;
-    checkbox.addEventListener("click", complete_task);
-    checkbox.addEventListener('click', display_number_tasks_left);
-    checkbox.classList.add("checkbox");
-    
-    //The task
-    const task_description = document.createElement("label");
-    const element = todo.content;
-    task_description.innerHTML = element;
-    task_description.classList.add("content");
-    if(todo.completed){
-        task_description.classList.add("strike");
-    };
-    
-    //The delete element
-    const remove = document.createElement("div");
-    const x = document.createTextNode("X");
-    remove.classList.add("remove");
-    remove.addEventListener('click',remove_task);
-    remove.addEventListener('click', display_number_tasks_left);
-    remove.appendChild(x);
-    
-    //Append them all to the container
-    task.appendChild(checkbox);
-    task.appendChild(task_description);
-    task.appendChild(remove);
-    
-    return task;
-    
-};
+
+
 
 const add = document.getElementById("add_todo").addEventListener('click', add_task);
 const display_completed = document.getElementById("display_completed").addEventListener('click',display_completed_list);
