@@ -1,7 +1,7 @@
 
 import {loadTodos,saveTodos} from './ls.js';
 import {display_list,display_completed_list, display_active_list,display_number_tasks_left} from './view.js';
-import {tasks,todos,tasks_left} from './variables';
+import {tasks,todos,tasks_left} from './variables.js';
 // import {remove_task, complete_task} from './action';
 
 // let tasks = [];
