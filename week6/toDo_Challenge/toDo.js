@@ -4,23 +4,14 @@ import {count_unchecked_items} from './utilities.js';
 
 const tasks = loadTodos();
 
-const todos = document.getElementById("todos");
-const tasks_left = document.getElementById("tasks_left");
-const add = document.getElementById("add_todo").addEventListener('click',action.add_task);
-const display_completed = document.getElementById("display_completed").addEventListener('click',display_completed_list);
-const display_active = document.getElementById("display_active").addEventListener('click',display_active_list);
-const display = document.getElementById("display").addEventListener('click',display_list);
-
-display_number_tasks_left(tasks_left);
-display_list(todos);
 
 //So when the user is in the impput box just has to hit enter and can click the + if wanted to.
 const input = document.getElementById("new_todo");
 input.addEventListener("keyup", function(event) {
-  if (event.key === "Enter") {
-   event.preventDefault();
-   document.getElementById("add_todo").click();
-  }
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("add_todo").click();
+    }
 });
 
 //Displays all tasks to the user.
@@ -55,9 +46,9 @@ function display_active_list(todos){
 };
 //Displays a number for the tasks still left to be completed.
 function display_number_tasks_left(tasks_left){
-    total_checked = count_unchecked_items();
-    tasks_left.innerHTML = total_checked;
-
+    total_checked = count_unchecked_items(tasks);
+    tasks_left.innerHTML = total_checked + "tasks left";
+    
 };
 
 function add_todo(todo){
@@ -67,7 +58,7 @@ function add_todo(todo){
 
 
 function create_todo(string){
-
+    
     const todo = {
         id : Date.now(), 
         content: string, 
@@ -87,9 +78,9 @@ function remove_task(){
     tasks.splice(index,1);
     saveTodos(tasks);
     display_list(todos);
-
     
-
+    
+    
 };
 
 
@@ -120,8 +111,8 @@ const action ={
             tasks[index].completed = true;
             saveTodos(tasks);
             display_number_tasks_left();
-
-
+            
+            
         }else{
             content.classList.remove("strike");
             tasks[index].completed = false;
@@ -129,21 +120,21 @@ const action ={
             display_number_tasks_left();
         }
     },
-
+    
 };
 function create_task(todo){
     
     //Container for the task
     const task = document.createElement("div");
     task.id ="task";
-
+    
     //Checkbox
     const checkbox = document.createElement("input");
     checkbox.type= "checkbox";
     checkbox.checked = todo.completed;
     checkbox.addEventListener("click", action.complete_task);
     checkbox.addEventListener('click', display_number_tasks_left);
-
+    
     //The task
     const task_description = document.createElement("label");
     const element = todo.content;
@@ -159,13 +150,22 @@ function create_task(todo){
     remove.addEventListener('click',remove_task);
     remove.addEventListener('click', display_number_tasks_left);
     remove.appendChild(x);
-
+    
     //Append them all to the container
     task.appendChild(checkbox);
     task.appendChild(task_description);
     task.appendChild(remove);
-
+    
     return task;
-
+    
 };
 
+const todos = document.getElementById("todos");
+const tasks_left = document.getElementById("tasks_left");
+const add = document.getElementById("add_todo").addEventListener('click',action.add_task);
+const display_completed = document.getElementById("display_completed").addEventListener('click',display_completed_list);
+const display_active = document.getElementById("display_active").addEventListener('click',display_active_list);
+const display = document.getElementById("display").addEventListener('click',display_list);
+
+display_number_tasks_left(tasks_left);
+display_list(todos);

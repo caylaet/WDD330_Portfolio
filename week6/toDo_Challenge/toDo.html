@@ -8,16 +8,21 @@
     <title>ToDos</title>
 </head>
 <body>
+    <div class="whole_app">
     <h1>Todos</h1>
-    <div id="todos"></div>
-    <div id="tasks_left"></div>
-    <button type="button" id = "display">All</button>
-    <button type="button" id = "display_active">Active</button>
-    <button type="button" id = "display_completed">Completed</button><br>
-
+    <div class="tasks_Container">
+        <div id="todos"></div>
+        <div id="tasks_left"></div>
+        <button type="button" id = "display">All</button>
+        <button type="button" id = "display_active">Active</button>
+        <button type="button" id = "display_completed">Completed</button><br>
+    </div>
+    <div class="input">
     <input type="text" id="new_todo">
     <button type="button" id="add_todo">+</button>
-    <script type="module" src="toDos.js"></script>
+    </div>
+    </div>
+    <script type="module" src="toDo.js"></script>
 
 </body>
 </html>

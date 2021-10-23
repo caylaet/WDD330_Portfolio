@@ -1,3 +1,47 @@
 .strike{
     text-decoration: line-through;
 }
+.whole_app{
+    width: 25%;
+    height: 50%;
+    margin: auto;
+    background-color: cadetblue;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.tasks_Container{
+    display:grid;
+    grid-template-columns: auto auto auto auto;
+    column-gap: 10px;
+    
+}
+#todos{
+    grid-column: 1 / 5;
+    align-items: center;
+}
+#tasks_left{
+    text-shadow: 5px 5px 8px rgba(0,0,0,0.24);
+}
+h1{
+    text-align: center;
+    text-shadow: 5px 5px 8px rgba(0,0,0,0.24);
+}
+button{
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.input{
+    text-align: center;
+}
+input{
+    border: none;
+    height: 20px;
+    width: 75%;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+#add_todo{
+    width: 50px;
+    font-size: larger;
+}
