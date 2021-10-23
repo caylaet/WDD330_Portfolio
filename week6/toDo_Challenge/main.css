@@ -19,6 +19,8 @@
 #task{
     display: grid;
     grid-template-columns: max-content max-content auto;
+    column-gap: 10px;
+    padding-bottom: 20px;
 }
 .checkbox{
     grid-column: 1 / 2;
@@ -29,6 +31,8 @@
 }
 .remove{
     grid-column: 3 / 4;
+    justify-self: end;
+
 }
 #tasks_left{
     text-shadow: 5px 5px 8px rgba(0,0,0,0.24);
