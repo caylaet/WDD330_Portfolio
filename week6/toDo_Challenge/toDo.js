@@ -2,7 +2,7 @@
 import {loadTodos,saveTodos} from './ls.js';
 import {count_unchecked_items} from './utilities.js';
 
-const tasks = [];
+let tasks = [];
 const saved = loadTodos();
 if(saved !== null){
     tasks.push(...saved);
@@ -21,7 +21,7 @@ input.addEventListener("keyup", function(event) {
 });
 
 //Displays all tasks to the user.
-function display_list(todos){
+function display_list(){
     todos.innerHTML="";
     tasks.forEach(element => {
         const todo = create_task(element);
@@ -30,7 +30,7 @@ function display_list(todos){
 };
 
 //Displays only completed tasks to the user.
-function display_completed_list(todos){
+function display_completed_list(){
     todos.innerHTML="";
     tasks.forEach(element => {
         if(element.completed){
@@ -41,7 +41,7 @@ function display_completed_list(todos){
 };
 
 //Displays tasks still to be done to the user.
-function display_active_list(todos){
+function display_active_list(){
     todos.innerHTML="";
     tasks.forEach(element => {
         if(!element.completed){
