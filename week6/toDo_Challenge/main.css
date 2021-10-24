@@ -19,24 +19,30 @@
     grid-template-columns: max-content max-content auto;
     column-gap: 10px;
     margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 8px;
     background-color: white;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 .checkbox{
     grid-column: 1 / 2;
+    font-size: larger;
 }
 .content{
     grid-column: 2 / 3;
+    font-size: larger;
 
 }
 .remove{
     grid-column: 3 / 4;
     justify-self: end;
+    font-size: larger;
 
 }
 #tasks_left{
     text-shadow: 5px 5px 8px rgba(0,0,0,0.24);
     font-size: larger;
+    align-self: center;
 }
 h1{
     text-align: center;
@@ -59,6 +65,7 @@ button:focus{
     border: none;
     height: 40px;
     width: 75%;
+    margin-right: 10px;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 #add_todo{
