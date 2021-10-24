@@ -2,6 +2,7 @@
 import {remove_task, complete_task} from './action.js';
 import {display_number_tasks_left} from './view.js'
 
+//Returns a todo with all of its functionality from a todo object
 function create_task(todo){
     
     //Container for the task
@@ -41,7 +42,7 @@ function create_task(todo){
     return task;
     
 };
-
+//Returns how many todos in task array are checked
 function count_unchecked_items(tasks){
     let total_checked = 0;
     tasks.forEach(element =>{
@@ -51,4 +52,26 @@ function count_unchecked_items(tasks){
     });
     return total_checked;
 };
-export{count_unchecked_items,create_task};
+
+//returns a todo object
+function create_todo(string){
+    
+    const todo = {
+        id : Date.now(), 
+        content: string, 
+        completed: false
+    };
+    return todo;
+};
+
+//Adds a todo object to the task array
+function add_todo(todo){
+    tasks.push(todo);
+};
+
+//clears the input field
+function clear_input(){
+    document.getElementById("new_todo").value="";
+}; 
+
+export{count_unchecked_items,create_task,create_todo, add_todo, clear_input};
