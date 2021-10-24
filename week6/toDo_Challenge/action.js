@@ -3,6 +3,7 @@ import {saveTodos} from './ls.js';
 import {tasks,todos} from './variables.js';
 import {display_list,display_number_tasks_left} from './view.js';
 
+//If as task is marked complete,this will add a strike through it, update array and local storage that it has been completed and update display with how many tasks left
 function complete_task(){
     const content = this.nextElementSibling;
     const index = tasks.findIndex(todo => todo.content === content.innerHTML);
@@ -21,6 +22,7 @@ function complete_task(){
     }
 };
 
+//If a task is removed this will remove it from local storage and tasks array as well as update display
 function remove_task(){
     if (tasks.length == 1){
         localStorage.clear();

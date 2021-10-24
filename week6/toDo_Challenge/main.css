@@ -27,6 +27,7 @@
 .checkbox{
     grid-column: 1 / 2;
     font-size: larger;
+    height: 22px;
 }
 .content{
     grid-column: 2 / 3;
