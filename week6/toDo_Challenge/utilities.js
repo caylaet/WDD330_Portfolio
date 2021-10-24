@@ -1,4 +1,4 @@
-
+import { tasks } from './variables.js';
 import {remove_task, complete_task} from './action.js';
 import {display_number_tasks_left} from './view.js'
 
