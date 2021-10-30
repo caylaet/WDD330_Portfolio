@@ -12,25 +12,41 @@
     <h2>Chapter 11</h2>
     <h3>All about functions:</h3>
     <ul>
-        <li>Use strict mode, js Lint, or ESLint</li>
-        <li><a href="https://www.jslint.com/">JS Lint</a> or ESLint</li>
-        <li>check to see if a feature is supported in a browser use <a href="https://modernizr.com/docs">Modernizr</a> or <a href="https://caniuse.com/">Can I Use?</a></li>
-        <li>Using the <a href="https://www.geeksforgeeks.org/console-in-javascript/"> console</a> is a very good way to debug code.</li>
-        <li>Use the debugger command to set breakpoints in your code</li>
-        <li>You can create your own error objects and use them to throw your own errors</li>
-        <li>Using the Errors you can do <a herf="https://www.w3schools.com/js/js_errors.asp">Exception Handling</a> using try, catch and finally</li>
-        <li> You will want to create and run tests on your code to make sure it is working properly </li>
-        <li>Test-driven development:
-         <ol>
-          <li>Write tests (that initialy fail)</li>
-          <li>Write code to pass the tests</li>
-          <li>Refactor the code</li>
-          <li>Test refacterd code</li>
-          <li>Write more test for new features</li>
+        <li>functions are first-class objects, which means they can be passed around in the same way as every other value. They can have their own properties and methods, as well as accepting other functions as parameters and being returned by other functions.</li>
+        <li> You can set different aspects of the this function than call that part of any perameter passed to the function (which I believe includes other funcitons, or class...) </li>
+        <li><a href="https://www.w3schools.com/js/js_function_call.asp">Call method</a> allows an object to use a method belonging to another object.</li>
+        <li> You can add your own properties to functions in the same way that you can add properties to any object in JavaScript. With fucntionName.functionProperty = . </li>
+        <li> Immediately Invoked Function Expression – or IIFE – (pronounced 'iffy') is an anonymous function that is invoked as soon as it’s defined. Written: (()=>{})(); </li>
+        <li>IIFE can be used for seting up temperary variables, temperary functions, or can be used to enclose a block of code inside its own private scope </li>
+        <li> You can write a function to rewrite itself. It will do something once and than after the first call only act the way it has been rewritten. </li>
+        <li>Init-Time Branching is the idea of only exicuting code that can be run on a specific browser. Within we can also rewrite the function so that it only gets called once.</li>
+        <li><a href="https://www.javascripttutorial.net/javascript-recursive-function/">Recursive Functions</a>  call themselves</li>  
+        <li><a href="https://www.w3schools.com/js/js_callback.asp">CallBack</a> is a function passed as an argument to another function</li>
+        <li>Callbacks can be used to facilitate <a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ">event-driven asynchronous programming</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">A promise</a> represents the future result of an asynchronous operation</li>
+        <li>You can use funcitons to return functions </li>
+        <li><a href="https://www.w3schools.com/js/js_function_closures.asp">Closure</a> - is a reference to a variable that was created inside the scope of another function, but is then kept alive and used in another part of the program </li>
+        <li><a href="https://www.geeksforgeeks.org/javascript-generator/">Generators</a> - are special functions used to produce iterators that maintain the state of a value. To define a generator function, an asterisk symbol (*) is placed after the function declaration</li>
+        <li>Functional Programing:</li>
+        <ol>
+          <li>A key aspect of functional programming is its use of pure functions. A pure function is a function that adheres to the following rules:</li>
+
+          <li>1) The return value of a pure function should only depend on the values provided as arguments. It doesn't rely on values from somewhere else in the program.</li>
+            
+          <li>2) There are no side-effects. A pure function doesn't change any values or data elsewhere in the program. It only makes non-destructive data transformations and returns new values, rather than altering any of the underlying data.</li>
+            
+          <li>3) Referential transparency. Given the same arguments, a pure function will always return the same result.</li>
+            
+          <li>In order to follow these rules, any pure function must have:</li>
+            
+          <li>At least one argument; otherwise the return value must depend on something other than the arguments of the function, breaking the first rule</li>
+          <li>A return value; otherwise there’s no point in the function (unless it has changed something else in the program – in which case, it’s broken the 'no side-effects' rule).</li>
         </ol>
-        </li>
-        <!-- <li><a href=""></a></li>
-        <li> </li> -->
+        <li>Higher-Order Functions - functions that accept another function as an argument, or return another function as a result, or both</li>
+        <li>Currying - not all arguments have been supplied to the function, so it returns another function that retains the arguments already provided, and expects the remaining arguments that were omitted when the original function was called. A final result is only returned once all the expected arguments have eventually been provided.</li>
+        <li>Currying is the idea of creating a funciton that can be redefined if an agruemnt has not been supplied.</li>
+        <li><a href=""></a></li>
+        <li> </li>
     </ul>
   
     
