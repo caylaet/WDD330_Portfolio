@@ -5,7 +5,7 @@ body {
 ol{
     list-style-type: none;
 }
-.notes_link, .ninja_link {
+.main_link {
     color:white;
     background-color: green;
     text-decoration: none;
@@ -18,7 +18,7 @@ ol{
     
 }
 
-.notes_link:hover, .ninja_link:hover{
+.main_link:hover{
     color: black;
 }
 .table_of_contents{
