@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 8 Notes | WDD 330 portfolio </title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <h1>Week 8 Notes</h1>
+
+    <h2>Chapter 8: CSS3 Transforms and Transitions</h2>
+    <ul>
+        <li>The <a href="https://www.w3schools.com/css/css3_2dtransforms.asp">transform</a> property gives you the ablity to translate, rotate, scale or skew and element on the page.</li>
+            <ol>
+                <li>Translation: allows you to move and object left and right up and down. It is written like so: translate(x,y) x from the left and y from the top. tanslateY() and translateX() can be used to only move along one axis </li>
+                <li>Scaling: scale(x,y) increases the size of an element. When uing this only the element selected will grow elments around it will not change to fit the new size.  </li>
+                <li>Rotation: rotate() rotates an element around the point of origin by a specified angle value. The point from which is rotates is the elments center. </li>
+                <li>Skew: skew(x,y) function specifies a skew along the x and y axes. The x specifies the skew on the x axis, and the y specifies the skew on the y axis. If the second parameter is omitted, the skew will only occur on the x axis </li>
+                <li><a href="https://www.w3schools.com/cssref/css3_pr_transform-origin.asp">transform-origin</a> redefines from which point with in your element your transform happens.</li>
+                <li>Transforms are all declared on one line and are applied in the order they are placed from right to left.</li>
+                <li><a href="http://www.useragentman.com/IETransformsTranslator/">Cross browser code for a transform</a></li>
+            </ol>
+        <li><a href="https://www.w3schools.com/css/css3_transitions.asp">Transistions</a> is the idea of telling a browers how you want a transform to change from one state to another</li>
+            <ol>
+                <li>rather than writing out an animation in JavaScript, you can simply switch a property value and the browser will do the transistion as specified.</li>
+                <li>transistion-porperty: the defualt is all but if there is a specific change on an element you want to be transistioned than list it here seperated by commas. A full list can be found <a herf="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties">here</a>. It is best to specify what you want to transistion as something in the future may get the ablity and mess up your site.</li>
+                <li>transition-duration: specifies the time it takes to transfom. 200ms is considered the optimum time.</li>
+                <li>transiton-timing-function: this lets you control if it speeds up or slows downa and how you want that to be.</li>
+                <li>transition-delay: this gives the transition a delayed start.</li>
+                <li>transitions have a shorthand and can be written in any order on the same line but if you have a delay you must include a deration.</li>
+            </ol>
+        <li>Animations- allows you to control each stage of the animation using <a herf="https://www.w3schools.com/cssref/css3_pr_animation-keyframes.asp">keyframes</a></li>
+        <ol>
+            <li>You first have to define the animantion using keyframes before applying it to an element.</li>
+            <li>animation-name: a property that you use to speifiy which  @keyframes you want.</li>
+            <li>animantion-duration: a property to define the length of time for one iteraiton of the @keyframes</li>
+            <li>animation-timing-function: a property to determine how the animation will progress over time.</li>
+            <li>animation-iteration-count: a property to define how many times you want it do iterate throught @keyframes</li>
+            <li>animation-direction: a property allows you to specify if an animaiton after one go through will go throgh backwards or not.</li>
+            <li>animaiton-delay: a proprty to define if you want a delay before beging an animation.</li>
+            <li>animation-fill-mode: allows you to define what the animaiton is to do during the delay.</li>
+            <li>There is short hand where all of this can be written on one line only seperated by a space. Commas are used to sperate differnt animaations for one element. </li>
+        </ol>
+        <!-- <li><a href=""></a></li>
+        <li> </li> -->
+    </ul>
+  
+    
+  </body>
+</html>

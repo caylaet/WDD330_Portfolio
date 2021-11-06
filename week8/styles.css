@@ -1,0 +1,41 @@
+body {
+    background-color: yellowgreen;
+}
+
+ol{
+    list-style-type: none;
+}
+.main_link {
+    color:white;
+    background-color: green;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 25px;
+    padding: 5px;
+} 
+.link {
+    margin-top: 20px;
+    
+}
+
+.main_link:hover{
+    color: black;
+}
+.table_of_contents{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.grid_2col{
+    justify-self: center;
+}
+a{
+    text-decoration: none;
+    border: 2px solid white;
+    color: black
+}
+a:hover{
+    color:white;
+}
+ol {
+    list-style-type: decimal;
+}
