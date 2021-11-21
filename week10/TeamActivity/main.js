@@ -23,7 +23,7 @@ async function showQuakes() {
 
 function initPos() {
     // get location
-    let locResp = await getLocation();
+    let locResp = await getLoc();
     // take a look at where the information we need is in the returned object
     console.log(locResp);
     // we really only need the coords portion
