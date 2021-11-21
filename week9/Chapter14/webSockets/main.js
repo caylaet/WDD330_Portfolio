@@ -26,10 +26,10 @@ connection.addEventListener('message', (event) => {
     output(`RESPONSE: ${event.data}`);
 }, false);
 
-connection.addEventListener('close', () => {
-    output('DISCONNECTED');
-}, false);
+// connection.addEventListener('close', () => {
+//     output('DISCONNECTED');
+// }, false);
 
-connection.addEventListener('error', (event) => {
-output(`<span style='color: red;'>ERROR: ${event.data}</span>`);
-}, false);
+// connection.addEventListener('error', (event) => {
+// output(`<span style='color: red;'>ERROR: ${event.data}</span>`);
+// }, false);
