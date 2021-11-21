@@ -34,10 +34,10 @@ function initPos() {
 function getQuakesForLocation(location) {
     // build out the url with the location
     const radius = 100;
-    const query =
-      baseUrl +
-      `&latitude=${location.latitude}&longitude=${location.longitude}&maxradiuskm=${radius}`;
-    console.log(query);
+    const query ='https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2019-01-01&endtime=2019-02-02'
+    //   baseUrl +
+    //   `&latitude=${location.latitude}&longitude=${location.longitude}&maxradiuskm=${radius}`;
+    // console.log(query);
     // fetch the data
     quakes = await getJSON(query);
     return quakes;
@@ -89,4 +89,4 @@ ${item[0]}: ${item[1]}
   .join("");
 
 }
-everything();
+showQuakes();
