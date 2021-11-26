@@ -39,6 +39,14 @@ const links = [
       label: "Week10",
       url: "week10/index.html"
     },
+    {
+      label: "Week11",
+      url: "week11/index.html"
+    },
+    {
+      label: "Final Project",
+      url: "FinalProject/abc.html"
+    },
   ];
   let text;
   links.forEach(myFunction);

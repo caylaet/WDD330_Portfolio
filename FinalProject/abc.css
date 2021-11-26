@@ -1,3 +1,12 @@
+@font-face {
+    font-family: fibelNord;
+    src: url(fibel-nord/Fibel\ Nord.ttf);
+  }
+
+*{
+    font-family: fibelNord;
+}
+
 .upperCaseLetter{
     background-color:yellow;
     height: 15vw;
@@ -6,7 +15,7 @@
     padding-top: 50px;
     border-radius: 10px;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-    font-size: 10vw;
+    font-size: 15vw;
     text-align: center;
     line-height: 15vw;
 }
