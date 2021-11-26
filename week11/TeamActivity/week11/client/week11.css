@@ -1,0 +1,37 @@
+/* * {
+    border: 1px solid black;
+} */
+.hidden {
+    visibility: hidden;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 10px;
+    gap: 10px;
+}
+.inner-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 10px;
+    gap: 10px;
+}
+.grid-container > div, .inner-grid > div {
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+#list {
+    text-align: left;
+}
+@media only screen and (min-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    fieldset {
+        height: 200px;
+        margin-bottom: 10px;
+    }
+}

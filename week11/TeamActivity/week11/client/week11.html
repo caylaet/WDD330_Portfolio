@@ -4,23 +4,72 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .hidden{
-            visibility: hidden;
-        }
-    </style>
+    <link rel="stylesheet" href="week11.css" type="text/css"/>
+    <script src="week11.js" type="module" defer></script>
+    <title>Log-In Authentication</title>
 </head>
 <body>
-    <form id="login">
-        <label for="email">Email:</label>
-        <input name="email" type="text" id="username"><br>
-        <label for="password">Password:</label>
-        <input name="password" type="text" id="password"><br>
-        <button type="button" id="submit">Login</button>
-    </form>
-
-
-    <script src="week11.js" type="module"></script>
+    <h1>Example Log-In Authentication App</h1>
+    <div class="errors hidden" id="errors"></div>
+    <div class="grid-container">
+        <div>
+            <form method="" id="login">
+                <fieldset>
+                    <legend>Login Section</legend>
+                    <div class="inner-grid">
+                        <div>
+                            <label for="email">Email:</label>
+                        </div>
+                        <div>
+                            <input type="email" name="email" id="username" class="form-control"><br>
+                        </div>
+                        <div>
+                            <label for="password">Password:</label>
+                        </div>
+                        <div>
+                            <input type="password" name="password" id="password" class="form-control"><br>
+                        </div>
+                        <div>
+                            <button type="button" name="submit" id="submit">Submit</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+            <div id="tokenDisplay"></div>
+        </div>
+        <div>
+            <form name="postForm" id="postForm" class="hidden">
+                <fieldset>
+                    <legend>Post Content Section</legend>
+                    <div id="content" class="inner-grid hidden">
+                        <div>
+                            <label for="title">Title</label>
+                        </div>
+                        <div>
+                            <input type="text" name="title" class="form-control" placeholder="Title" required />
+                        </div>
+                        <div>
+                            <label for="content">Content</label>
+                        </div>
+                        <div>
+                            <input type="text" name="content" class="form-control" placeholder="Content" required />
+                        </div>
+                        <div>
+                            <input type="submit" id="createSubmit"/>
+                        </div>
+                        <div id="postError"></div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div id="listDiv" class="hidden">
+            <fieldset>
+                <legend>Post List Section</legend>
+                <ul id="list">
+                    <!--Post list should go here-->
+                </ul>
+            </fieldset>
+        </div>
+    </div>
 </body>
 </html>
