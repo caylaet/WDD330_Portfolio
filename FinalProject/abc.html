@@ -15,7 +15,8 @@
         <div id="optionThree" class="lowerCaseLetter" draggable="true" ondragstart="drag(event)"></div>
         <div id="optionFour" class="lowerCaseLetter" draggable="true" ondragstart="drag(event)"></div>
     </div>
-
+    <audio src="Good job you did it.wav" id="correctSound" onended="setLetters()"></audio>
+    <audio src="It's ok you can try again.wav" id="incorrectSound"></audio>
     <script src="abc.js"></script>
 </body>
 </html>

@@ -7,6 +7,8 @@ function start(){
 }
 
 function setLowercaseLetters(upperCaseLetter){
+    let lowercaseLetters = document.getElementsByClassName("lowerCaseLetter");
+    console.log(lowercaseLetters);
     let option1 = getElement("optionOne");
     let option2 = getElement("optionTwo");
     let option3 = getElement("optionThree");
@@ -97,11 +99,17 @@ function drop(ev){
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     // ev.target.innerHTML = data;
+    const tryAgain = getElement("incorrectSound");
+    tryAgain.pause();
+    tryAgain.currentTime = 0;
     if(checkAnswer(data)){
         console.log("correct");
-        setLetters();
+        getElement("correctSound").play();
     }
-    else( console.log("incorrect"))
+    else{
+        tryAgain.play();
+        console.log("incorrect");
+    }
     
 }
 function drag(ev){
