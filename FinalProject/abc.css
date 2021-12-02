@@ -19,13 +19,7 @@
     text-align: center;
     line-height: 15vw;
 }
-.lowerCaseLetters{
-    margin-top: 50px;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    gap: 25px 0;
-    place-items: center;
-}
+
 .lowerCaseLetter{
     background-color: red;
     height: 15vw;
@@ -39,31 +33,29 @@
 
 }
 
-/* .cloud{ 
-    margin-top:70px;
-    width:350px;
-    height:120px;
-    background:#ECEFF1;
-    box-shadow: 10px 10px rgba(0,0,0,0.2);
-    border-radius:100px;
-    
- }
- .cloud::after, .cloud::before{
-     content:"";
-     position:relative;
-     display:inline-block;
-     background:inherit;
-     border-radius:inherit;
- }
- .cloud::after{
-     width:100px;
-     height:100px;
-     top:-140px;
-     left:-110px;
- }
- .cloud::before{
-     width:180px;
-     height:180px;
-     top: -70px;
-     left:130px;
- } */
+#optionOne{
+    position: absolute;
+    left: 10px;
+}
+#optionTwo{
+    position: absolute;
+    left: 70px;
+}
+#optionThree{
+    position: absolute;
+    left: 130px;
+}
+#optonFour{
+    position: absolute;
+    left: 170px;
+}
+
+@media only screen and (min-width: 768px){
+    .lowerCaseLetters{
+        margin-top: 50px;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        gap: 25px 0;
+        place-items: center;
+    }
+}

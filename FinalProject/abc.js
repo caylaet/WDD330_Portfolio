@@ -1,4 +1,5 @@
-
+let minNumber = 25;
+let maxNumber = 97;
 
 function start(){
     let upper = getElement("upperCaseLetter");
@@ -7,46 +8,20 @@ function start(){
 }
 
 function setLowercaseLetters(upperCaseLetter){
+    let lowercaseLetter = matchLowerLetter(upperCaseLetter);
+    let numberOfRandom = 3;
+    let randomLetters = generateRandomNumbers(numberOfRandom,minNumber,maxNumber,[lowercaseLetter.charCodeAt(0)])
     let lowercaseLetters = document.getElementsByClassName("lowerCaseLetter");
-    console.log(lowercaseLetters);
-    let option1 = getElement("optionOne");
-    let option2 = getElement("optionTwo");
-    let option3 = getElement("optionThree");
-    let option4 = getElement("optionFour");
     optionNumber = Math.floor(4 * Math.random());
-    console.log(optionNumber);
-    let matchLowercaseLetter = matchLowerLetter(upperCaseLetter);
-    switch (optionNumber){
-        case 0:
-            console.log("1");
-            option1.innerHTML = matchLowercaseLetter;
-            option2.innerHTML = randomLowercaseLetter(matchLowercaseLetter);
-            option3.innerHTML = randomLowercaseLetter(matchLowercaseLetter);
-            option4.innerHTML = randomLowercaseLetter(matchLowercaseLetter);
-            break;
-        case 1:
-            console.log("2");
-            option1.innerHTML = randomLowercaseLetter(matchLowercaseLetter);
-            option2.innerHTML = matchLowercaseLetter;
-            option3.innerHTML = randomLowercaseLetter(matchLowercaseLetter);
-            option4.innerHTML = randomLowercaseLetter(matchLowercaseLetter);
-            break;
-        case 2:
-            console.log("3");
-            option1.innerHTML = randomLowercaseLetter(matchLowercaseLetter);
-            option2.innerHTML = randomLowercaseLetter(matchLowercaseLetter);
-            option3.innerHTML = matchLowercaseLetter;
-            option4.innerHTML = randomLowercaseLetter(matchLowercaseLetter);
-            break;
-        case 3:
-            console.log("4");
-            option1.innerHTML = randomLowercaseLetter(matchLowercaseLetter);
-            option2.innerHTML = randomLowercaseLetter(matchLowercaseLetter);
-            option3.innerHTML = randomLowercaseLetter(matchLowercaseLetter);
-            option4.innerHTML = matchLowercaseLetter;
-            break;
+    let randomLettersPosition = 1;
+    for (let i = 0; i < lowercaseLetters.length; i++){
+        if(i === optionNumber){
+            lowercaseLetters[i].innerHTML = lowercaseLetter;
+            continue;
+        }
+        lowercaseLetters[i].innerHTML = String.fromCharCode(randomLetters[randomLettersPosition]);
+        randomLettersPosition++;
     }
-
 }
 function nextUppercaseLetter(current){
     let nextUpper = current.charCodeAt(0);
@@ -58,32 +33,37 @@ function nextUppercaseLetter(current){
     return String.fromCharCode(nextUpper);
     
 }
+//given an uppercase letter will return the matching lowercase letter
 function matchLowerLetter(upper){
     let lowercase = upper.charCodeAt(0);
     lowercase += 32;
     return String.fromCharCode(lowercase);
 }
+//This funciton sets the next uppercase letter and lowercase letters
 function setLetters(){
     console.log("made it");
     let upper = getElement("upperCaseLetter");
     let next = nextUppercaseLetter(upper.innerHTML);
     upper.innerHTML = next;
     setLowercaseLetters(next);
-    
 
 }
-function randomLowercaseLetter(matchLowercaseLetter) {
-    let generateRandom = Math.floor(Math.random() * 25 + 97);
-    while (generateRandom == matchLowercaseLetter.charCodeAt(0)){
-        generateRandom = Math.floor(Math.random() * 25 + 97);
+
+//Generates an array of random numbers between two numbers with no repeats
+function generateRandomNumbers(amountRandom,lower,higher,numberArray =[]) {
+    for (i = 0; i < amountRandom; i++){
+        let generateRandom = Math.floor(Math.random() * lower + higher);
+        while (numberArray.includes(generateRandom)){
+            generateRandom = Math.floor(Math.random() * lower + higher);
+        }
+        numberArray.push(generateRandom);
     }
-    return String.fromCharCode(generateRandom);
+    return numberArray;
 };
 
-function checkAnswer(data){
-    // console.log(data.charCodeAt(0));
-    // console.log(getElement("upperCaseLetter").innerHTML.charCodeAt(0));
-   if((data.charCodeAt(0)) - (getElement("upperCaseLetter").innerHTML.charCodeAt(0))  == 32){
+//Checks if the lowercase dropped matchesthe current uppercase letter
+function checkAnswer(lowercaseLetter){
+   if((lowercaseLetter.charCodeAt(0)) - (getElement("upperCaseLetter").innerHTML.charCodeAt(0))  == 32){
        return true;
    }
    else { return false;}
@@ -119,3 +99,19 @@ function allowDrop(ev){
     ev.preventDefault();
 }
 start();
+let box = getElement("optionOne")
+
+box.addEventListener('touchmove',function(e) {
+    // grab the location of touch
+    var touchLocation = e.targetTouches[0];
+    
+    // assign box new coordinates based on the touch.
+    box.style.left = touchLocation.pageX + 'px';
+    box.style.top = touchLocation.pageY + 'px';
+  });
+
+box.addEventListener('touchend', function(e) {
+    // current box position.
+    var x = parseInt(box.style.left);
+    var y = parseInt(box.style.top);
+  })
