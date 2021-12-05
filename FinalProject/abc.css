@@ -12,7 +12,6 @@
     height: 15vw;
     width: 15vw;
     margin: auto;
-    padding-top: 50px;
     border-radius: 10px;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     font-size: 15vw;
@@ -30,24 +29,34 @@
     font-size: 15vw;
     text-align: center;
     line-height: 15vw;
+    top: 150px;
 
+}
+#upperCaseLetter{
+    position:absolute;
+    left: 150px;
+    top: 50px;
 }
 
 #optionOne{
     position: absolute;
-    left: 10px;
+    left: 0px;
+    z-index: -1;
 }
 #optionTwo{
     position: absolute;
-    left: 70px;
+    left: 100px;
+
 }
 #optionThree{
     position: absolute;
     left: 130px;
+
 }
 #optonFour{
     position: absolute;
     left: 170px;
+
 }
 
 @media only screen and (min-width: 768px){
