@@ -1,10 +1,20 @@
 let minNumber = 25;
 let maxNumber = 97;
+let correctCount =0;
+let incorrectCount = 0;
+let incorrectLetters = [];
 
 function start(){
     let upper = getElement("upperCaseLetter");
     upper.innerHTML = "A";
     setLowercaseLetters("A");
+    let boxes = document.getElementsByClassName("lowerCaseLetter");
+
+    for (let i=0; i< boxes.length; i++){
+        console.log (boxes[i]);
+        boxes[i].addEventListener('touchmove', moveOnTouch);
+        boxes[i].addEventListener('touchend', checkOnEnd);
+    };
 }
 
 function setLowercaseLetters(upperCaseLetter){
@@ -100,13 +110,7 @@ function allowDrop(ev){
 }
 start();
 
-let boxes = document.getElementsByClassName("lowerCaseLetter");
 
-for (let i=0; i< boxes.length; i++){
-    console.log (boxes[i]);
-    boxes[i].addEventListener('touchmove', moveOnTouch);
-    boxes[i].addEventListener('touchend', checkOnEnd);
-};
 
 
 function moveOnTouch(e){
@@ -121,41 +125,62 @@ function moveOnTouch(e){
 
 function checkOnEnd(e){
     let lowercase = e.target ;
+    console.log(lowercase.id);
     // current box position.
     var x = parseInt(lowercase.style.left);
-    console.log(lowercase.style.left);
+    // console.log(lowercase.style.left);
     var y = parseInt(lowercase.style.top);
-    console.log(lowercase.innerHTML);
-    console.log(lowercase.style.top);
-    checkPlacement(x,y);
+    const data = lowercase.innerHTML;
+    // console.log(lowercase.style.top);
+    const result = checkPlacement(x,y);
+    console.log(result);
+    const tryAgain = getElement("incorrectSound");
+    tryAgain.pause();
+    tryAgain.currentTime = 0;
+    if(result && checkAnswer(data)){
+        resetBlock(lowercase);
+        console.log("correct");
+        getElement("correctSound").play();
+    }else if (!result){
+        resetBlock(lowercase);
+
+    }
+    else{
+        resetBlock(lowercase);
+        tryAgain.play();
+        console.log("incorrect");
+    }
 }
 
 function checkPlacement(x,y){
     console.log( x, y)
 
-    if (x > 140 && x < 168){
+    if (x >= 135 && x <= 168 && y >= 30 && y <= 65) {
         console.log("X made it!");
-
-    }
-    if (y > 30 && y < 65 ){
         console.log("Y made it!");
+        return true;
+
+    }else{
+        return false
+    }
+}
+
+function resetBlock(letter){
+    const id = letter.id;
+    letter.style.top = 150 + 'px';
+    switch(id){
+        case 'optionOne':
+            letter.style.left = 5 + '%';
+            break;
+        case 'optionTwo':
+            letter.style.left = 30 + '%';
+            break;
+        case 'optionThree':
+            letter.style.left = 55 + '%';
+            break;
+        case 'optionFour':
+            letter.style.left = 80 + '%';
+            break;
     }
 
 }
-
-// box.addEventListener('touchmove',function(e) {
-//     // grab the location of touch
-//     var touchLocation = e.targetTouches[0];
-    
-//     // assign box new coordinates based on the touch.
-//     box.style.left = touchLocation.pageX + 'px';
-//     box.style.top = touchLocation.pageY + 'px';
-//   });
-
-// box.addEventListener('touchend', function(e) {
-//     // current box position.
-//     var x = parseInt(box.style.left);
-//     var y = parseInt(box.style.top);
-//     let lowercase = e.target ;
-//     console.log(lowercase.innerHTML);
-//   })
