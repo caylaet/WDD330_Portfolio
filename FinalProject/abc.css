@@ -62,6 +62,10 @@
 
 
 }
+.results{
+    position: absolute;
+    top: 250px;
+}
 
 @media only screen and (min-width: 768px){
     .lowerCaseLetters{
@@ -75,6 +79,11 @@
     #optionOne, #optionTwo, #optionThree, #optionFour, #upperCaseLetter{
         position: static;
 
+    }
+    .results{
+        position: absolute;
+        top: 20px;
+        left: 20px;
     }
 
 }

@@ -1,10 +1,9 @@
 let minNumber = 25;
 let maxNumber = 97;
-let correctCount =0;
-let incorrectCount = 0;
-let incorrectLetters = [];
+
 
 function start(){
+
     let upper = getElement("upperCaseLetter");
     upper.innerHTML = "A";
     setLowercaseLetters("A");
@@ -15,6 +14,33 @@ function start(){
         boxes[i].addEventListener('touchmove', moveOnTouch);
         boxes[i].addEventListener('touchend', checkOnEnd);
     };
+    displayIncorrect();
+
+    //set up local storage
+    let response = loadResponses("numberCorrect");
+    if (response !== null){
+        console.log("Number Correct: "+ response);
+    }else if (response == null){
+        let response = 0
+        saveResponses("numberCorrect", response);
+    }else {
+        console.log("something went wrong with local storage. Failed to load Number of correct.")
+    }
+
+    //set up local storage
+    let incorrectResponse = loadResponses("incorrect");
+    if (incorrectResponse !== null){
+        console.log(incorrectResponse);
+        // let incorrect = JSON.parse(incorrectResponse);
+        // console.log("Incorrect: "+ incorrect);
+    }else if (incorrectResponse == null){
+        const array = {};
+        response = JSON.stringify(array)
+        saveResponses("incorrect", response);
+    }else {
+        console.log("something went wrong with local storage failed to load Number of incorrect.")
+    }
+
 }
 
 function setLowercaseLetters(upperCaseLetter){
@@ -51,11 +77,11 @@ function matchLowerLetter(upper){
 }
 //This funciton sets the next uppercase letter and lowercase letters
 function setLetters(){
-    console.log("made it");
     let upper = getElement("upperCaseLetter");
     let next = nextUppercaseLetter(upper.innerHTML);
     upper.innerHTML = next;
     setLowercaseLetters(next);
+    recordCorrect();
 
 }
 
@@ -100,6 +126,7 @@ function drop(ev){
         tryAgain.play();
         console.log("incorrect");
     }
+    displayIncorrect();
     
 }
 function drag(ev){
@@ -108,12 +135,16 @@ function drag(ev){
 function allowDrop(ev){
     ev.preventDefault();
 }
-start();
 
 
 
+function load(){
+    start();
+
+}
 
 function moveOnTouch(e){
+
     // grab the location of touch
     var touchLocation = e.targetTouches[0];
     let lowercaseLetter = e.target;
@@ -124,8 +155,9 @@ function moveOnTouch(e){
 }
 
 function checkOnEnd(e){
+    const tryAgain = getElement("incorrectSound");
     let lowercase = e.target ;
-    console.log(lowercase.id);
+    // console.log(lowercase.id);
     // current box position.
     var x = parseInt(lowercase.style.left);
     // console.log(lowercase.style.left);
@@ -134,7 +166,6 @@ function checkOnEnd(e){
     // console.log(lowercase.style.top);
     const result = checkPlacement(x,y);
     console.log(result);
-    const tryAgain = getElement("incorrectSound");
     tryAgain.pause();
     tryAgain.currentTime = 0;
     if(result && checkAnswer(data)){
@@ -148,16 +179,19 @@ function checkOnEnd(e){
     else{
         resetBlock(lowercase);
         tryAgain.play();
+        currentLetter = getElement("upperCaseLetter").innerHTML;
+        recordIncorrect(currentLetter);
         console.log("incorrect");
     }
+    displayIncorrect()
 }
 
 function checkPlacement(x,y){
-    console.log( x, y)
+    // console.log( x, y)
 
     if (x >= 135 && x <= 168 && y >= 30 && y <= 65) {
-        console.log("X made it!");
-        console.log("Y made it!");
+        // console.log("X made it!");
+        // console.log("Y made it!");
         return true;
 
     }else{
@@ -183,4 +217,58 @@ function resetBlock(letter){
             break;
     }
 
+}
+
+function recordCorrect(){
+    let response = loadResponses("numberCorrect");
+    numberResponse = parseInt(response)
+    numberResponse += 1;
+    saveResponses("numberCorrect",numberResponse);
+}
+
+function recordIncorrect(letter){
+    let response = loadResponses("incorrect");
+    console.log(response);
+    responseObject = JSON.parse(response);
+    console.log(responseObject);
+    let found = false;
+    for (const key in responseObject){
+        if (key == letter){
+            responseObject[key]+=1;
+            found = true;
+            break;
+        }
+    }
+    if (!found){
+        responseObject[letter] = 1;
+    }
+    saveResponses("incorrect",JSON.stringify(responseObject));
+}
+
+function loadResponses(type){
+    var response = window.localStorage.getItem(type);
+    return response;
+    // JSON.parse(toDoArray);
+
+}
+function saveResponses(type, response){
+    window.localStorage.setItem(type,response);
+}
+
+function displayIncorrect(){
+    console.log("here");
+    const inccorrectLetters = getElement("incorrectLetters");
+    inccorrectLetters.innerHTML = "";
+    let incorrectView = "";
+    let response = loadResponses("incorrect");
+    responseArray = JSON.parse(response);
+    for (const key in responseArray){
+        incorrectView +=" "+key+": "+ responseArray[key];
+    }
+    inccorrectLetters.innerHTML = incorrectView;
+}
+
+function resetCount(){
+    localStorage.clear();
+    displayIncorrect();
 }
