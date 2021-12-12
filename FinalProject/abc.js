@@ -114,6 +114,7 @@ return element;
 function drop(ev){
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
+    const currentLetter = getElement("upperCaseLetter").innerHTML;
     // ev.target.innerHTML = data;
     const tryAgain = getElement("incorrectSound");
     tryAgain.pause();
@@ -125,6 +126,7 @@ function drop(ev){
     else{
         tryAgain.play();
         console.log("incorrect");
+        recordIncorrect(currentLetter);
     }
     displayIncorrect();
     
