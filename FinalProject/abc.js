@@ -151,9 +151,7 @@ function recordCorrect(){
 
 export function recordIncorrect(letter){
     let response = loadResponses("incorrect");
-    console.log(response);
     responseObject = JSON.parse(response);
-    console.log(responseObject);
     let found = false;
     for (const key in responseObject){
         if (key == letter){
