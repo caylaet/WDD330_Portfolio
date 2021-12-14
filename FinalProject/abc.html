@@ -8,20 +8,25 @@
     <link rel="stylesheet" href="abc.css"/>
 </head>
 <body>
-    <div id="upperCaseLetter"class="upperCaseLetter cloud" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    <button onclick="load()">click me to play</button>
-    <div class="lowerCaseLetters">
-        <div id="optionOne" class="lowerCaseLetter" draggable="true" ondragstart="drag(event)"></div>
-        <div id="optionTwo" class="lowerCaseLetter" draggable="true" ondragstart="drag(event)"></div>
-        <div id="optionThree" class="lowerCaseLetter" draggable="true" ondragstart="drag(event)"></div>
-        <div id="optionFour" class="lowerCaseLetter" draggable="true" ondragstart="drag(event)"></div>
+    <div class="loadGame" id="loadGame">
+        <div class="loadExplanation">This is for your child to practice matching their upppercase with their lowercase letters.</div><br>
+        <button onclick="load()" class="loadButton">click to begin</button>
     </div>
-    <div id="results" class="results">
-        <p>Incorrect Letters: <div id="incorrectLetters"></div></p>
-        <button onclick="resetCount()">Reset</button>
+    <div class="game" id="game">
+        <div id="upperCaseLetter"class="upperCaseLetter cloud" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="lowerCaseLetters">
+            <div id="optionOne" class="lowerCaseLetter" draggable="true" ondragstart="drag(event)"></div>
+            <div id="optionTwo" class="lowerCaseLetter" draggable="true" ondragstart="drag(event)"></div>
+            <div id="optionThree" class="lowerCaseLetter" draggable="true" ondragstart="drag(event)"></div>
+            <div id="optionFour" class="lowerCaseLetter" draggable="true" ondragstart="drag(event)"></div>
+        </div>
+        <div id="results" class="results">
+            <p class="incorrectTitle">Incorrect Letters: <div id="incorrectLetters"></div></p>
+            <button onclick="resetCount()" class="resetButton">Reset</button>
+        </div>
     </div>
     <audio src="Good job you did it.wav" id="correctSound" onended="setLetters()" ></audio>
     <audio src="It's ok you can try again.wav" id="incorrectSound" ></audio>
-    <script src="abc.js"></script>
+    <script type="module" src="abc.js"></script>
 </body>
 </html>
