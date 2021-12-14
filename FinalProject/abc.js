@@ -135,7 +135,7 @@ function allowDrop(ev){
 
 
 
-function load(){
+export function load(){
     start();
 
 }
