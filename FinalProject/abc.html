@@ -28,9 +28,9 @@
     <audio src="Good job you did it.wav" id="correctSound" onended="setLetters()" ></audio>
     <audio src="It's ok you can try again.wav" id="incorrectSound" ></audio>
     <script type="module" src="abc.js">
-        
+
         import {load} from './abc.js';
-        const loadButton = getElement("loadButton");
+        const loadButton = document.getElementById("loadButton");
         loadButton.addEventListener('click', load());
 
         function drop(ev){
