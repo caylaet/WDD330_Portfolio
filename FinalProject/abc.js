@@ -112,6 +112,7 @@ return element;
 
 
 export function load(){
+    event.preventDefault();
     start();
 
 }
