@@ -28,6 +28,11 @@
     <audio src="Good job you did it.wav" id="correctSound" onended="setLetters()" ></audio>
     <audio src="It's ok you can try again.wav" id="incorrectSound" ></audio>
     <script type="module" src="abc.js">
+        
+        import {load} from './abc.js';
+        const loadButton = getElement("loadButton");
+        loadButton.addEventListener('click', load());
+
         function drop(ev){
             ev.preventDefault();
             var data = ev.dataTransfer.getData("text");
@@ -47,13 +52,13 @@
             }
             displayIncorrect();
             
-        }
+        };
         function drag(ev){
             ev.dataTransfer.setData("text", ev.target.innerHTML);
-        }
+        };
         function allowDrop(ev){
             ev.preventDefault();
-        }
+        };
 
     </script>
 </body>
