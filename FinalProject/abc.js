@@ -5,7 +5,7 @@ let maxNumber = 97;
 
 
 
-function start(){
+export function start(){
     const game = document.getElementById("game");
     game.style.display = "block";
     const loadGame = document.getElementById("loadGame");
@@ -72,7 +72,7 @@ function matchLowerLetter(upper){
     return String.fromCharCode(lowercase);
 }
 //This funciton sets the next uppercase letter and lowercase letters
-function setLetters(){
+export function setLetters(){
     let upper = getElement("upperCaseLetter");
     let next = nextUppercaseLetter(upper.innerHTML);
     upper.innerHTML = next;
@@ -110,10 +110,7 @@ return element;
 
 
 
-export function load(){
-    start();
-
-}
+ 
 
 
 
@@ -164,7 +161,7 @@ export function displayIncorrect(){
     inccorrectLetters.innerHTML = incorrectView;
 }
 
-function resetCount(){
+export function resetCount(){
     localStorage.clear();
     setUpLocalStorage();
     displayIncorrect();
