@@ -149,7 +149,7 @@ function recordCorrect(){
     saveResponses("numberCorrect",numberResponse);
 }
 
-function recordIncorrect(letter){
+export function recordIncorrect(letter){
     let response = loadResponses("incorrect");
     console.log(response);
     responseObject = JSON.parse(response);
@@ -178,7 +178,7 @@ function saveResponses(type, response){
     window.localStorage.setItem(type,response);
 }
 
-function displayIncorrect(){
+export function displayIncorrect(){
     console.log("here");
     const inccorrectLetters = getElement("incorrectLetters");
     inccorrectLetters.innerHTML = "";

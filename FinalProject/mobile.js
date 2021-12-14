@@ -1,3 +1,5 @@
+import { displayIncorrect, recordIncorrect } from "./abc.js";
+
 export const mobile = {
 
     onTouchMove(e){
@@ -28,14 +30,14 @@ export const mobile = {
 
 
         if(result && checkAnswer(data)){
-            resetBlock(lowercase);
+            this.resetBlock(lowercase);
             getElement("correctSound").play();
 
         }else if (!result){
-            resetBlock(lowercase);
+            this.resetBlock(lowercase);
         }
         else{
-            resetBlock(lowercase);
+            this.resetBlock(lowercase);
             tryAgain.play();
             currentLetter = getElement("upperCaseLetter").innerHTML;
             recordIncorrect(currentLetter);
@@ -45,8 +47,6 @@ export const mobile = {
     },
     
     checkPlacement(x,y){
-        
-    
         if (x >= 135 && x <= 168 && y >= 30 && y <= 65) {
             // console.log("X made it!");
             // console.log("Y made it!");
