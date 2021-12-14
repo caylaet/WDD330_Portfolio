@@ -3,6 +3,7 @@ import {mobile} from './mobile.js';
 let minNumber = 25;
 let maxNumber = 97;
 
+getElement("loadButton").addEventListener(click, load());
 
 function start(){
     const game = document.getElementById("game");
