@@ -28,8 +28,33 @@
     <audio src="Good job you did it.wav" id="correctSound" onended="setLetters()" ></audio>
     <audio src="It's ok you can try again.wav" id="incorrectSound" ></audio>
     <script type="module" src="abc.js">
-        import {load} from './abc.js';
-        window.load = load;
+        function drop(ev){
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            const currentLetter = getElement("upperCaseLetter").innerHTML;
+            // ev.target.innerHTML = data;
+            const tryAgain = getElement("incorrectSound");
+            tryAgain.pause();
+            tryAgain.currentTime = 0;
+            if(checkAnswer(data)){
+                console.log("correct");
+                getElement("correctSound").play();
+            }
+            else{
+                tryAgain.play();
+                console.log("incorrect");
+                recordIncorrect(currentLetter);
+            }
+            displayIncorrect();
+            
+        }
+        function drag(ev){
+            ev.dataTransfer.setData("text", ev.target.innerHTML);
+        }
+        function allowDrop(ev){
+            ev.preventDefault();
+        }
+
     </script>
 </body>
 </html>
