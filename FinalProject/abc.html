@@ -10,7 +10,7 @@
 <body>
     <div class="loadGame" id="loadGame">
         <div class="loadExplanation">This is for your child to practice matching their upppercase with their lowercase letters.</div><br>
-        <button id="loadButton" class="loadButton" onclick="load()">click to begin</button>
+        <button id="loadButton" class="loadButton" onclick="start()">click to begin</button>
     </div>
     <div class="game" id="game">
         <div id="upperCaseLetter"class="upperCaseLetter cloud" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
@@ -31,10 +31,10 @@
 
         import {start, setLetters, resetCount} from './abc.js';
 
-        function load(){
-            start();
+        // function load(){
+        //     start();
 
-        };
+        // };
 
         function drop(ev){
             ev.preventDefault();
