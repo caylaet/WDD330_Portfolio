@@ -32,14 +32,14 @@ export const localStorage = {
             if (key == letter){
                 responseObject[key]+=1;
                 found = true;
+                save("incorrect",JSON.stringify(responseObject));
                 break;
             };
         };
         if (!found){
-            const start = 1;
-            responseObject[letter] = '1';
+            const newLetterObject ={ ...responseObject, letter: 1}
+            save("incorrect",JSON.stringify(newLetterObject));
         };
-        save("incorrect",JSON.stringify(responseObject));
     },
     
     /* This will display the information found in local storage of incorrect letters */

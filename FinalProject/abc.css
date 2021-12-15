@@ -1,6 +1,8 @@
 @font-face {
     font-family: fibelNord;
     src: url(fibel-nord/Fibel\ Nord.ttf);
+    font-family: fibelNordBold;
+    src: url(fibel-nord/Fibel\ Nord\ Bold.ttf);
   }
 
 *{
@@ -106,6 +108,8 @@ body{
     width: 100px;
     margin: 0 auto;
     display: block;
+    font-size: larger;
+    font-family: fibelNordBold;
     border: none;
     background-color: gold;
     border-radius: 10px;
