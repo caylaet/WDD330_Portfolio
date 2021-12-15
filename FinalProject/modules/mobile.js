@@ -58,7 +58,7 @@ export const mobile = {
 /* This is called to check to see if the position the user drops the letter 
 is within a certain range of the uppercase letter */
 function checkPlacement(x,y){
-    if (x >= 135 && x <= 168 && y >= 30 && y <= 65) {
+    if (x >= 150 && x <= 193 && y >= 30 && y <= 65) {
         return true;
 
     }else{
