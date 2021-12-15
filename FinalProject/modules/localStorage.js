@@ -36,7 +36,8 @@ export const localStorage = {
             };
         };
         if (!found){
-            responseObject.letter = 1;
+            const start = 1;
+            responseObject[letter] = start;
         };
         save("incorrect",JSON.stringify(responseObject));
     },
