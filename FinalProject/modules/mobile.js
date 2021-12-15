@@ -1,4 +1,4 @@
-import {tryAgain, youDidIt, currentUppercaseLetter} from "./variables.js";
+import {tryAgain, youDidIt, currentUppercaseLetter, incorrectLetters} from "./variables.js";
 import {localStorage} from "./localStorage.js";
 import { utilities } from "./utilities.js";
 
@@ -49,7 +49,7 @@ export const mobile = {
             tryAgain.play();
             localStorage.recordIncorrect(currentUppercaseLetter());
             //update the display for any missed letters
-            localStorage.displayIncorrect()
+            localStorage.displayIncorrect(incorrectLetters)
         }
     }
     

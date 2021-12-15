@@ -1,4 +1,4 @@
-import { utilities } from "./utilities.js";
+import { incorrectLetters } from "./variables.js";
 
 export const localStorage = {
     
@@ -43,17 +43,16 @@ export const localStorage = {
         save("incorrect",JSON.stringify(responseObject));
     },
     
-    /* This will display the information found in local storage of incorrect letters */
-    displayIncorrect(){
-        const inccorrectLetters = utilities.getElement("incorrectLetters");
-        inccorrectLetters.innerHTML = "";
-        let incorrectView = "";
+    /* This will display the information found in local storage */
+    displayIncorrect(view){
+        view.innerHTML = "";
+        let newView = "";
         const response = load("incorrect");
         const responseArray = JSON.parse(response);
         for (const key in responseArray){
-            incorrectView +=" "+key+": "+ responseArray[key];
+            newView +=" "+key+": "+ responseArray[key];
         };
-        inccorrectLetters.innerHTML = incorrectView;
+        view.innerHTML = newView;
     }
     
 };
@@ -62,7 +61,7 @@ export const localStorage = {
 export function resetCount(){
     window.localStorage.clear();
     localStorage.setUp();
-    localStorage.displayIncorrect();
+    localStorage.displayIncorrect(incorrectLetters);
 };
 
 /* This will retrieve from local storage based on the title given */

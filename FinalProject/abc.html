@@ -9,10 +9,10 @@
 </head>
 <body>
     <div class="loadGame" id="loadGame">
-        <div class="loadExplanation">This is for your child to practice matching their upppercase with their lowercase letters.</div><br>
+        <div class="loadExplanation">This is for your child to practice matching their uppercase with their lowercase letters.</div><br>
         <button id="loadButton" class="loadButton">click to begin</button>
     </div>
-    <div class="game" id="game">
+    <div class="remove" id="game">
         <div id="upperCaseLetter"class="upperCaseLetter cloud"></div>
         <div class="lowerCaseLetters">
             <div id="optionOne" class="lowerCaseLetter" draggable="true" ></div>
@@ -25,17 +25,26 @@
             <button id ="resetButton" class="resetButton">Reset</button>
         </div>
     </div>
+    <div id="end"class="end remove">
+        <p id="endWords" class="endWords">These are the letters your child needs to work on and how many times they got them wrong: <div id="incorrectLettersEnd"></div></p>
+        <button id="endButton" class="endButton">Play Again</button>   
+    </div>
     <audio src="./sounds/Good job you did it.wav" id="correctSound"></audio>
     <audio src="./sounds/It's ok you can try again.wav" id="incorrectSound" ></audio>
+    <audio src="./sounds/Ragnor yay.wav" id="yay" ></audio>
+    <audio src="./sounds/Azger Ending.wav" id="endSound" ></audio>
     <script type="module">
         
-        import {start} from './abc.js';
+        import {start, playYay} from './abc.js';
         import {setLetters} from './modules/setLetters.js';
         import {resetCount} from './modules/localStorage.js';
+        import {restart} from './modules/utilities.js';
+        import {yay} from'./modules/variables.js';
         document.getElementById("loadButton").onclick = start;
         document.getElementById("correctSound").onended = setLetters.next;
         document.getElementById("resetButton").onclick = resetCount;
-
+        document.getElementById("endButton").onclick = restart;
+        document.getElementById("endSound").onended = playYay;
 
 
     </script>

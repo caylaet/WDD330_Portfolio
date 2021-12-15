@@ -1,8 +1,7 @@
 @font-face {
     font-family: fibelNord;
     src: url(fibel-nord/Fibel\ Nord.ttf);
-    font-family: fibelNordBold;
-    src: url(fibel-nord/Fibel\ Nord\ Bold.ttf);
+
   }
 
 *{
@@ -11,7 +10,34 @@
 body{
     background-color: black;
 }
+.remove{
+    display:none;
+}
+.removeAnimation{
+    animation: fade-out 2s;
+}
+.add{
+    display: block;
+    animation: fade-in 1s;
 
+}
+@keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
 .upperCaseLetter{
     background-color:gold;
     height: 15vw;
@@ -22,6 +48,10 @@ body{
     font-size: 15vw;
     text-align: center;
     line-height: 15vw;
+}
+
+.lowerCaseLetters{
+    transition: opacity 2s ease-in-out;
 }
 
 .lowerCaseLetter{
@@ -74,9 +104,7 @@ body{
     margin: 10px;
 
 }
-.game{
-    display: none;
-}
+
 .loadGame{
     text-align: center;
     color: gold;
@@ -87,6 +115,7 @@ body{
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+
 }
 .loadButton{
     width: 25%;
@@ -117,7 +146,28 @@ body{
 .incorrectTitle{
     margin-top: 0;
 }
+.end{
 
+    text-align: center;
+    color: gold;
+    background-color:green;
+    margin-top: 50px;
+    font-size: x-large;
+    border: black 2px solid;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.endButton{
+    width: 25%;
+    height: 100px;
+    border: none;
+    background-color: gold;
+    border-radius: 10px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    font-size: x-large;
+
+}
 @media only screen and (min-width: 768px){
     .lowerCaseLetters{
         margin-top: 50px;

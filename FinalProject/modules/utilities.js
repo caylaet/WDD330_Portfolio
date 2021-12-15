@@ -28,8 +28,12 @@ export const utilities = {
             return true;
         }
         else { return false;};
-    }
+    },
 
+    
+    
+};
 
-}
-
+export function restart(){
+    location.reload();
+};

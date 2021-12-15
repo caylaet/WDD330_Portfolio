@@ -1,13 +1,19 @@
+import { localStorage } from './localStorage.js';
 import {utilities} from './utilities.js';
-import { currentUppercaseLetter, minNumber, maxNumber, uppercaseElement} from './variables.js';
+import { currentUppercaseLetter, minNumber, maxNumber, uppercaseElement, game, endsound, incorrectLettersEnd} from './variables.js';
 
 
 export const setLetters = {
     /* This funciton sets the next uppercase letter and lowercase letters */
     next(){
         const next = nextUppercaseLetter(currentUppercaseLetter());
-        uppercaseElement.innerHTML = next;
-        setLetters.lowercase(next);
+        if(!next){
+            end();
+
+        }else{
+            uppercaseElement.innerHTML = next;
+            setLetters.lowercase(next);
+        }
     },
 
     /* Sets up all the lowercase letters selects three random letters and than 
@@ -31,6 +37,7 @@ export const setLetters = {
             lowercaseLetters[i].innerHTML = String.fromCharCode(randomLetters[randomLettersPosition]);
             randomLettersPosition++;
         }
+
     }
 }
 
@@ -40,10 +47,10 @@ function nextUppercaseLetter(current){
     let nextUpper = current.charCodeAt(0);
     if (nextUpper < 90){
         nextUpper += 1;
+        return String.fromCharCode(nextUpper);
     }else{
-        nextUpper = 65;
+        return false;
     }
-    return String.fromCharCode(nextUpper);
     
 }
 /* Given an uppercase letter will return the matching lowercase letter */
@@ -51,4 +58,13 @@ function matchLowerLetter(upper){
     let lowercase = upper.charCodeAt(0);
     lowercase += 32;
     return String.fromCharCode(lowercase);
+}
+
+/* This will end the game. Called after the last letter */
+function end(){
+    game.classList.remove("add");
+    game.classList.add("removeAnimation");
+    localStorage.displayIncorrect(incorrectLettersEnd);
+    endsound.play();
+    
 }

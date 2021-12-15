@@ -1,6 +1,6 @@
 import { utilities } from "./utilities.js";
 import { localStorage } from "./localStorage.js";
-import { youDidIt, tryAgain, currentUppercaseLetter } from "./variables.js";
+import { youDidIt, tryAgain, currentUppercaseLetter, incorrectLetters } from "./variables.js";
 
 export const desktop ={
 
@@ -25,7 +25,7 @@ export const desktop ={
         else{
             tryAgain.play();
             localStorage.recordIncorrect(currentUppercaseLetter());
-            localStorage.displayIncorrect();
+            localStorage.displayIncorrect(incorrectLetters);
         }  
     },
 
