@@ -36,7 +36,7 @@ export const localStorage = {
             };
         };
         if (!found){
-            responseObject[letter] = 1;
+            responseObject.letter = 1;
         };
         save("incorrect",JSON.stringify(responseObject));
     },
