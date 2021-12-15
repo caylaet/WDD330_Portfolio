@@ -10,59 +10,35 @@
 <body>
     <div class="loadGame" id="loadGame">
         <div class="loadExplanation">This is for your child to practice matching their upppercase with their lowercase letters.</div><br>
-        <button id="loadButton" class="loadButton" onclick="start()">click to begin</button>
+        <button id="loadButton" class="loadButton">click to begin</button>
     </div>
     <div class="game" id="game">
-        <div id="upperCaseLetter"class="upperCaseLetter cloud" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div id="upperCaseLetter"class="upperCaseLetter cloud"></div>
         <div class="lowerCaseLetters">
-            <div id="optionOne" class="lowerCaseLetter" draggable="true" ondragstart="drag(event)"></div>
-            <div id="optionTwo" class="lowerCaseLetter" draggable="true" ondragstart="drag(event)"></div>
-            <div id="optionThree" class="lowerCaseLetter" draggable="true" ondragstart="drag(event)"></div>
-            <div id="optionFour" class="lowerCaseLetter" draggable="true" ondragstart="drag(event)"></div>
+            <div id="optionOne" class="lowerCaseLetter" draggable="true" ></div>
+            <div id="optionTwo" class="lowerCaseLetter" draggable="true" ></div>
+            <div id="optionThree" class="lowerCaseLetter" draggable="true" ></div>
+            <div id="optionFour" class="lowerCaseLetter" draggable="true" ></div>
         </div>
         <div id="results" class="results">
             <p class="incorrectTitle">Incorrect Letters: <div id="incorrectLetters"></div></p>
-            <button onclick="resetCount()" class="resetButton">Reset</button>
+            <button id ="resetButton" class="resetButton">Reset</button>
         </div>
     </div>
-    <audio src="Good job you did it.wav" id="correctSound" onended="setLetters()" ></audio>
-    <audio src="It's ok you can try again.wav" id="incorrectSound" ></audio>
-    <script type="module" src="abc.js">
+    <audio src="./sounds/Good job you did it.wav" id="correctSound"></audio>
+    <audio src="./sounds/It's ok you can try again.wav" id="incorrectSound" ></audio>
+    <script type="module">
+        
+        import {start} from './abc.js';
+        import {setLetters} from './modules/setLetters.js';
+        import {resetCount} from './modules/localStorage.js';
+        document.getElementById("loadButton").onclick = start;
+        document.getElementById("correctSound").onended = setLetters.next;
+        document.getElementById("resetButton").onclick = resetCount;
 
-        import {start, setLetters, resetCount} from './abc.js';
 
-        // function load(){
-        //     start();
-
-        // };
-
-        function drop(ev){
-            ev.preventDefault();
-            var data = ev.dataTransfer.getData("text");
-            const currentLetter = getElement("upperCaseLetter").innerHTML;
-            // ev.target.innerHTML = data;
-            const tryAgain = getElement("incorrectSound");
-            tryAgain.pause();
-            tryAgain.currentTime = 0;
-            if(checkAnswer(data)){
-                console.log("correct");
-                getElement("correctSound").play();
-            }
-            else{
-                tryAgain.play();
-                console.log("incorrect");
-                recordIncorrect(currentLetter);
-            }
-            displayIncorrect();
-            
-        };
-        function drag(ev){
-            ev.dataTransfer.setData("text", ev.target.innerHTML);
-        };
-        function allowDrop(ev){
-            ev.preventDefault();
-        };
 
     </script>
+
 </body>
 </html>
