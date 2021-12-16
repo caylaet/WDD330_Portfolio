@@ -35,6 +35,7 @@ export const mobile = {
 
         //If they dropped it on the uppercase letter and it is correct play the correct sound
         if(result && utilities.checkAnswer(lowercaseLetter)){
+            lowercase.style.visibility = "hidden";
             resetBlock(lowercase);
             youDidIt.play();
 
@@ -45,6 +46,7 @@ export const mobile = {
         }
         //If they dropped it on the uppercase letter but it was incorrect reset the letter to it's orginal place and play the incorrect soune
         else{
+            lowercase.style.visibility = "hidden";
             resetBlock(lowercase);
             tryAgain.play();
             localStorage.recordIncorrect(currentUppercaseLetter());

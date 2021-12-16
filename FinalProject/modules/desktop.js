@@ -13,6 +13,9 @@ export const desktop ={
 
         //gets the lowercase letter dropped
         const lowercaseLetter = ev.dataTransfer.getData("text");
+        const lowercaseLetterId = ev.dataTransfer.getData("id");
+        const lowercaseLetterElement = utilities.getElement(lowercaseLetterId);
+        lowercaseLetterElement.style.visibility = "hidden";
 
         //If the incorrect sound is playing stops and resets it
         tryAgain.pause();
@@ -32,6 +35,7 @@ export const desktop ={
     /*Called when a lowercase letter is first dragged */
     drag(ev){
         ev.dataTransfer.setData("text", ev.target.innerHTML);
+        ev.dataTransfer.setData("id", ev.target.id);
     },
 
     /*Called when being dragged */

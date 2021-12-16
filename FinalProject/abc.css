@@ -14,7 +14,7 @@ body{
     display:none;
 }
 .removeAnimation{
-    animation: fade-out 2s;
+    animation: fade-out 1s;
 }
 .add{
     display: block;

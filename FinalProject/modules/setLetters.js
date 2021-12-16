@@ -12,6 +12,7 @@ export const setLetters = {
 
         }else{
             uppercaseElement.innerHTML = next;
+            makeLowercaseVisible();
             setLetters.lowercase(next);
         }
     },
@@ -68,3 +69,11 @@ function end(){
     endsound.play();
     
 }
+
+/* This will make visible any lowercase that were hidden */
+function makeLowercaseVisible(){
+    const boxes = document.getElementsByClassName("lowerCaseLetter");
+    for (let i=0; i< boxes.length; i++){
+        boxes[i].style.visibility = "visible";
+    };
+};
