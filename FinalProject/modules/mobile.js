@@ -12,8 +12,8 @@ export const mobile = {
         const lowercase = e.target;
             
         // assign box new coordinates based on the touch.
-        lowercase.style.left = touchLocation.pageX + 'px';
-        lowercase.style.top = touchLocation.pageY + 'px';
+        lowercase.style.left = (touchLocation.pageX - 30) + 'px';
+        lowercase.style.top = (touchLocation.pageY - 30) +'px';
     },
 
    /* This will be called when the user lifts their finger off the screen */ 
